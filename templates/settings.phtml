@@ -1,0 +1,82 @@
+
+	<h2><?php _e( 'Load Me Quickly Settings', $this->slug ); ?></h2>
+  
+	<br />
+
+	<h3><?php _e( 'Global Settings', $this->slug ); ?></h3>
+
+	<form action='' id='options' method='post' style='float: left;'
+		  onsubmit="return confirm('WARNING! This will enable Load Me Quickly for every pages!');">
+
+		<input type='submit' name='add_all' class='button button-primary' style="margin-right: 50px" value='<?php _e( 'Enable for All Posts & Pages', $this->slug );?>' />
+    
+    </form>
+
+
+	<form action='' id='options' method='post'
+		  onsubmit="return confirm('WARNING! This will disable Load Me Quickly for every pages!');">
+
+		  <input type='submit' name='remove_all' class='button button-primary' value='<?php _e( 'Disable for All Posts And Pages', $this->slug );?>' />
+		<p class='description' style="font-size: 14px; margin-top: 10px;">*<?php _e( 'You can also enable/disable single posts & pages from their respective editing page (above their update/publish button).', $this->slug ); ?></p>
+
+    </form>
+	
+	<br /><br />
+
+	<h3 style='margin-bottom: 0px'><?php _e( 'Other Optimizations', $this->slug ); ?></h3>
+
+    <form action='' id='options' method='post'>
+
+    	<?php wp_nonce_field( $this->slug ) ?>
+
+		<table class='form-table'>
+		<tbody>
+
+		<tr>
+		<th scope='row'><?php _e( '.htaccess Settings', $this->slug ); ?></th>
+		<td><fieldset><legend class='screen-reader-text'><span><?php _e( '.htaccess Settings', $this->slug ); ?></span></legend>
+		<label for='gzip'>
+		<input name='gzip' type='checkbox' <?php swm_checked_if( $this->gzip == '1' ) ?> value='1'>
+		<?php _e( 'Enable Gzip Compression (mod_deflate)', $this->slug ); ?></label>
+		<br>
+		<label for='cache_static_assets'>
+		<input name='cache_static_assets' type='checkbox' <?php swm_checked_if( $this->cache_static_assets == '1' ) ?> value='1'>
+		<?php _e( 'Cache Static Assets', $this->slug ); ?></label>
+		<br>
+		</fieldset></td>
+		</tr>
+
+		<!-- <tr>
+		<th scope='row'><?php _e( 'Misc Settings', $this->slug ); ?></th>
+		<td><fieldset><legend class='screen-reader-text'><span><?php _e( 'Misc Settings', $this->slug ); ?></span></legend>
+		<label for='enable_static_files'>
+		<input name='enable_static_files' type='checkbox' <?php swm_checked_if( $this->enable_static_files == '1' ) ?> value='1'> <?php _e( 'To be determined (old enable_static_files)', $this->slug ); ?></label>
+		<p class='description'>(<?php _e( 'Also needs to be enabled for individual posts &#38; pages.', $this->slug ); ?>)</p>
+		</fieldset></td>
+		</tr> -->
+
+		</tbody>
+        </table>
+        <!-- <input type='submit' value='Save' /> -->
+        <!-- <?php submit_button('Apply Changes'); ?> -->
+
+		<input type='submit' name='save' class='button button-primary' value='<?php _e( 'Save Changes', $this->slug );?>' />
+
+    </form>
+	
+	<br /><br /><br />
+	
+	<div class='white-box' style='background-color: #FFF; padding: 10px 20px 20px 30px'>
+		<h3>We recommend that you install the <a href='https://github.com/roots/soil' target='_blank'>Roots.io/Soil</a> plugin, then copy the following lines to your theme's function.php:</h3>
+		<ul>
+			<li>add_theme_support('soil-clean-up'); // Cleaner WordPress markup</li> 
+			<li>add_theme_support('soil-js-to-footer'); // Moves all scripts to wp_footer action</li>
+			<li>add_theme_support('soil-jquery-cdn'); // Load jQuery from the Google CDN, with a local fallback</li>
+			<li>add_theme_support('soil-nav-walker'); // Cleaner walker for wp_nav_menu()</li>
+			<li>add_theme_support('soil-nice-search'); // Redirects search results from /?s=query to /search/query/, converts %20 to +</li>
+			<li>add_theme_support('soil-disable-trackbacks'); // Disables trackbacks/pingbacks</li>
+			<li>add_theme_support('soil-disable-asset-versioning'); // Remove version query string from all styles and scripts</li>
+			<li>add_theme_support('soil-relative-urls'); // Root relative URLs</li>
+			<li>add_theme_support('soil-google-analytics', 'UA-XXXXX-Y'); // Google Analytics snippet from HTML5 Boilerplate</li>
+		</ul> 
+	</div>

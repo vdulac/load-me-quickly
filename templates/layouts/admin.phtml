@@ -1,0 +1,12 @@
+<div class="wrap">
+
+	<?php foreach ( $this->flashes as $flash ) : ?>
+		<div class="fade <?php echo $flash['type']; ?>">
+			<p><strong>
+				<?php echo $flash['message']; ?>
+			</strong></p>
+		</div>
+	<?php endforeach; ?>
+
+	<?php include $this->template; ?>
+</div>
